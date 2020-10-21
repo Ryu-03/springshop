@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang ="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>deleteuser</title>
+</head>
+<body>
+
+	<h1 style = "color:gray">ユーザー消去</h1>
+	<span style=color:red th:text = "${comment}"></span><br>
+	
+	<p>ユーザーアカウントを消去します</p>
+	ユーザー名:<span th:text = "${user}">user</span><br>
+	<span>パスワードを入力してください</span><br>
+	<form th:action = "@{/deleteuser}" method = "post">
+		<input type = "password" name = "password">※再復活はできません<br>
+		<input type = "submit" value = "消去">
+	</form>
+		
+	<hr>
+	<a th:href = "@{/toppage}">一覧へ</a>
+	
+
+</body>
+</html>

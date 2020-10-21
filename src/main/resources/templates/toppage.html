@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang ="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>toppage</title>
+</head>
+<body th:with="user=${#authentication.principal.user}">
+
+	<h1 style = "color:gray">トップページです</h1>
+	ユーザー名:<span th:text="${user.userId}">user</span>
+	<span style = "color:blue" th:text = "${add}">add</span>
+	<span style = "color:red"  th:text = "${error}">error</span>
+	
+	<table border = 1>
+		<thead>
+			<tr>
+				<th colspan = "4">商品一覧</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>品物名</td>
+				<td>価格</td>
+				<td>在庫数</td>
+			</tr>
+			<tr th:each = "list:${list}">
+				<td th:text = "${list.name}">パソコン</td>
+				<td th:text = "${list.price}">100000円</td>
+				<td th:text ="${list.stock}">5</td>
+				<td>
+					<form th:action = "@{/cartin}" method = "post" th:each = "list2:${list}">
+						
+						<input type = hidden  name = "name" th:value = "${list2.name}">
+						<input type = hidden  name = "price" th:value = "${list2.price}">
+						<input type = hidden  name = "userName" th:value = "${user.userId}">
+						<input type = submit value = "enter">
+					</form>
+				</td>
+			</tr>		
+			</tbody>
+	</table><br>
+	
+	<div>
+		<a th:href = "@{/cart}">cartへ</a>
+		
+		<a th:href = "@{/userpage}">ユーザーページへ</a>
+	</div>
+	<form th:action ="@{/logout}" method = "post">
+		<button>ログアウト</button>
+	</form>
+	
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang ="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>userpage</title>
+</head>
+<body>
+
+	<h1 style = "color:gray">ユーザーページ</h1>
+	<span style=color:red th:text = "${comment}"></span><br>
+	
+	ユーザー名:<span th:text = "${user}">user</span><br>
+	パスワード:<span th:text = "${password}">password</span>※保護のため表示していません<br>
+	<a th:href = "@{/changepass}">パスワードを変更する</a>
+	<br>
+	<br>
+	<a th:href = "@{/deleteuser}">ユーザーを消去する</a>
+	
+	<hr>
+	<a th:href = "@{/toppage}">一覧へ</a>
+	
+
+</body>
+</html>

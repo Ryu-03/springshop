@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang ="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>cart</title>
+</head>
+<body>
+
+	<h1 style = "color:orange">カートの中身</h1>
+	
+	<table border = 1>
+		<thead>
+			<tr>
+				<th colspan = "3">商品一覧</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>品物名</td>
+				<td>価格</td>
+				<td>ユーザー名</td>
+			</tr>
+			<tr th:each="list : ${list}">
+				<td th:text = "${list.name}">電子レンジ</td>
+				<td th:text = "${list.price}">80000円</td>
+				<td th:text = "${list.userName}">taro</td>
+				<td>
+					<form th:action = "@{/delete}" method = post>
+						<input type = "hidden" name = number th:value = "${list.number}">
+						<input type = submit value = "delete">
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table><br>
+	<div>
+		<a th:href = "@{/toppage}">トップページに戻る</a>
+	</div>
+
+</body>
+</html>

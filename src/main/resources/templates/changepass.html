@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang ="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>changepass</title>
+</head>
+<body>
+
+	<h1 style = "color:gray">パスワード変更ページ</h1>
+	<span style = color:red th:text = "${error}">error</span><br>
+	
+	<form th:action = "@{/enterpass}" method = "post">
+	現在のパスワード<br>
+	<input type = "password" name = "oldpass"><br>
+	新しいパスワード<br>
+	<input type = "password" name = "newpass1"><br>
+	確認のためもう一度入力してください<br>
+	<input type = "password" name = "newpass2"><br>
+	<input type = submit value = "変更">
+	</form>
+	<br>
+	
+	
+	<hr>
+	<a th:href = "@{/userpage}">戻る</a>
+	
+
+</body>
+</html>
