@@ -6,8 +6,8 @@
 <body th:with="user=${#authentication.principal.user}">
 
 	<h1 style = "color:gray">トップページです</h1>
-	<h1>2行追加します。</h1>
-	<h1>add two line.</h1>
+	<h1>3行追加します。</h1>
+	<h1>add three line.</h1>
 	ユーザー名:<span th:text="${user.userId}">user</span>
 	<span style = "color:blue" th:text = "${add}">add</span>
 	<span style = "color:red"  th:text = "${error}">error</span>
